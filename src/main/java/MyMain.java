@@ -30,17 +30,34 @@ public class MyMain {
 
     // Checks whether str is a palindrome or not
     public static boolean isPalindrome(String str) {
-        if(str.equals(str.substring(str.length(), 0)){
+        int count = 0;
+
+        for (int i = 0; i < (str.length() / 2); i++) {
+            if (str.charAt(i) == str.charAt(str.length() - 1 - i)) {
+                count = count + 1;
+            }
+    }
+        if (count == str.length() / 2) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
-    
-    
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
 
-        // YOUR CODE HERE
+    public static void main (String[]args){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Please Enter A String: ");
+        String stringInput = scan.nextLine();
+        System.out.println("Your String contains:  " + countABC(stringInput) + " a's, b's, or c's." );
+        if (containsThe(stringInput)){
+            System.out.println("Your String DOES Contains: The");
+        }else{
+            System.out.println("Your String DOES NOT Contain: The");
+        }
+        if (isPalindrome(stringInput)){
+            System.out.println("Your String IS a Palindrome.");
+        }else{
+            System.out.println("Your String IS NOT a Palindrome.");
+        }
     }
 }
